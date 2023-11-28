@@ -10,21 +10,6 @@
 
 # 1. GEREKLILIKLER
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import warnings
-from lightgbm import LGBMRegressor
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.exceptions import ConvergenceWarning
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import mean_squared_error
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split, cross_val_score,GridSearchCV
 # pip install pydotplus
 # pip install skompiler
 # pip install astor
@@ -77,7 +62,7 @@ warnings.simplefilter(action='ignore', category=Warning)
 # 5. Korelasyon Analizi (Analysis of Correlation)
 
 ################################################################
-# Adım 1: Train ve Test veri setlerini okutup birleştiriniz. Birleştirdiğiniz veri üzerinden ilerleyiniz.
+# Adım 1: Train ve Test veri setlerinin okutup birleştirilmesi ve bu veri seti üzerinden ilerlenilmesi.
 ################################################################
 
 # train ve test setlerinin bir araya getirilmesi.
@@ -363,7 +348,7 @@ df = quick_missing_imp(df, num_method="median", cat_length=17)
 
 
 ######################################
-# Rare analizi yapınız ve rare encoder uygulayınız.
+# Rare analizi yapılması ve rare encoder uygulanması
 ######################################
 
 # Kategorik kolonların dağılımının incelenmesi
@@ -397,7 +382,7 @@ df=rare_encoder(df,0.01)
 
 
 ######################################
-# Yeni değişkenler oluşturunuz ve oluşturduğunuz yeni değişkenlerin başına 'NEW' ekleyiniz.
+# Yeni değişkenler oluşturulması 
 ######################################
 
 # Birinci kat alanı * zemin üstü yaşam alanı
@@ -478,7 +463,7 @@ df.drop(drop_list, axis=1, inplace=True)
 
 
 ##################
-# Label Encoding & One-Hot Encoding işlemlerini uygulayınız.
+# Label Encoding & One-Hot Encoding işlemlerinin uygulanması
 ##################
 
 cat_cols, cat_but_car, num_cols = grab_col_names(df)
@@ -537,8 +522,7 @@ df['SalePrice'].std()
 
 
 ##################
-# BONUS : Log dönüşümü yaparak model kurunuz ve rmse sonuçlarını gözlemleyiniz.
-# Not: Log'un tersini (inverse) almayı unutmayınız.
+# BONUS : Log dönüşümü yaparak model kurulması ve rmse sonuçlarının gözlemlenmesi.
 ##################
 
 # Log dönüşümünün gerçekleştirilmesi
@@ -571,7 +555,7 @@ np.sqrt(mean_squared_error(new_y_test, new_y))
 
 
 ##################
-# hiperparametre optimizasyonlarını gerçekleştiriniz.
+# hiperparametre optimizasyonlarının gerçekleştirilmesi.
 ##################
 
 
@@ -603,7 +587,7 @@ rmse = np.mean(np.sqrt(-cross_val_score(final_model, X, y, cv=5, scoring="neg_me
 
 
 ################################################################
-# Değişkenlerin önem düzeyini belirten feature_importance fonksiyonunu kullanarak özelliklerin sıralamasını çizdiriniz.
+# Değişkenlerin önem düzeyini belirten feature_importance fonksiyonunu kullanarak özelliklerin sıralamasının çizdirilmesi.
 ################################################################
 
 # feature importance
@@ -625,8 +609,8 @@ plot_importance(final_model, X,num=10)
 
 
 ########################################
-# test dataframeindeki boş olan salePrice değişkenlerini tahminleyiniz ve
-# Kaggle sayfasına submit etmeye uygun halde bir dataframe oluşturunuz. (Id, SalePrice)
+# test dataframeindeki boş olan salePrice değişkenlerinin tahminlenmesi ve
+# Kaggle sayfasına submit etmeye uygun halde bir dataframe oluşturulması (Id, SalePrice)
 ########################################
 
 
