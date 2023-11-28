@@ -1,10 +1,9 @@
 ################################################################
-# Ev Fiyat Tahmin Modeli
+# House Price Prediction - Ev Fiyat Tahmin Modeli
 ################################################################
 
 
-# Görev
-# Elimizdeki veri seti üzerinden minimum hata ile ev fiyatlarını tahmin eden bir makine öğrenmesi modeli geliştiriniz ve kaggle yarışmasına tahminlerinizi yükleyiniz.
+# Veri seti üzerinden minimum hata ile ev fiyatlarını tahmin eden bir makine öğrenmesi modeli geliştirilmesi.
 # https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/evaluation
 
 
@@ -52,7 +51,7 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 warnings.simplefilter(action='ignore', category=Warning)
 
 ######################################
-# GÖREV 1 : Veri setine EDA işlemlerini uygulayınız.
+# GÖREV 1 : Veri setine EDA işlemlerinin uygulanması
 ######################################
 
 # 1. Genel Resim
